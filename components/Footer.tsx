@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 const Footer: React.FC = () => {
@@ -7,10 +6,10 @@ const Footer: React.FC = () => {
   return (
     <footer className="bg-slate-900 text-slate-400 py-16 px-4">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
           <div className="col-span-1 md:col-span-1">
-            <div className="flex items-center gap-2 mb-6">
-              <div className="w-8 h-8 bg-indigo-600 rounded flex items-center justify-center text-white font-bold">R</div>
+            <div className="flex items-center gap-3 mb-6">
+              <img src="https://scontent.fsyd13-1.fna.fbcdn.net/v/t39.30808-1/494791355_122112763328840965_2229762770843612086_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=101&ccb=1-7&_nc_sid=2d3e12&_nc_ohc=0o1oiE6mSJcQ7kNvwFfERAE&_nc_oc=Adljx0XpZhwXpc_Yd1sYc6QQTqq1XPf_NRzxXBhBbVrMpoaC1yXegFfjpuVm9eGjToL8TU1elHmMzUK_StRsZG9e&_nc_zt=24&_nc_ht=scontent.fsyd13-1.fna&_nc_gid=XNCX8r_gvhpar8mzI10gnQ&oh=00_AfoHYHqCgNwLdhyHj32N5ytzjVP7RPs0lFx4d-yBvvooiw&oe=697B8588" alt="Reuben's Odd Jobs Logo" class="w-10 h-10 object-cover rounded-lg" />
               <span className="text-white text-xl font-bold">Reuben's <span className="text-indigo-400">Odd Jobs</span></span>
             </div>
             <p className="text-sm leading-relaxed mb-6">
@@ -52,21 +51,6 @@ const Footer: React.FC = () => {
                 <span>📱</span> Available on Request
               </li>
             </ul>
-          </div>
-
-          <div>
-            <h4 className="text-white font-bold mb-6">Newsletter</h4>
-            <p className="text-sm mb-4">Stay updated with our holiday schedules and special offers.</p>
-            <form className="flex flex-col gap-2">
-              <input 
-                type="email" 
-                placeholder="Email address" 
-                className="bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-indigo-500"
-              />
-              <button className="bg-indigo-600 text-white text-sm font-bold py-2 rounded-lg hover:bg-indigo-700 transition-all">
-                Subscribe
-              </button>
-            </form>
           </div>
         </div>
 
