@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reuben's Odd Jobs - Helping You With Tasks Big and Small</title>
+    <meta name="description" content="A professional and friendly platform for Reuben's Odd Jobs, helping with tasks big and small in Albury including tech support, cleaning, gardening, and more.">
+    <!-- Tailwind CSS for modern styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.38.0"
+  }
+}
+</script>
+</head>
+<body class="bg-slate-50 text-slate-900">
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent py-5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <img src="https://scontent.fsyd13-1.fna.fbcdn.net/v/t39.30808-1/494791355_122112763328840965_2229762770843612086_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=101&ccb=1-7&_nc_sid=2d3e12&_nc_ohc=0o1oiE6mSJcQ7kNvwFfERAE&_nc_oc=Adljx0XpZhwXpc_Yd1sYc6QQTqq1XPf_NRzxXBhBbVrMpoaC1yXegFfjpuVm9eGjToL8TU1elHmMzUK_StRsZG9e&_nc_zt=24&_nc_ht=scontent.fsyd13-1.fna&_nc_gid=XNCX8r_gvhpar8mzI10gnQ&oh=00_AfoHYHqCgNwLdhyHj32N5ytzjVP7RPs0lFx4d-yBvvooiw&oe=697B8588" alt="Reuben's Odd Jobs Logo" class="w-10 h-10 object-cover rounded-lg shadow-lg" id="nav-logo">
+                <span class="text-xl font-bold tracking-tight text-slate-900 md:text-white" id="brand-text">
+                    Reuben's <span class="text-indigo-600">Odd Jobs</span>
+                </span>
+            </div>
+
+            <div class="hidden md:flex items-center gap-8">
+                <a href="#services" class="nav-link text-sm font-medium text-slate-700 md:text-white/90 hover:text-indigo-600">Services</a>
+                <a href="#book" class="nav-link text-sm font-medium text-slate-700 md:text-white/90 hover:text-indigo-600">Book</a>
+                <a href="#faq" class="nav-link text-sm font-medium text-slate-700 md:text-white/90 hover:text-indigo-600">FAQ</a>
+                <a href="#hours" class="nav-link text-sm font-medium text-slate-700 md:text-white/90 hover:text-indigo-600">Hours</a>
+                <a href="#support" class="nav-link text-sm font-medium text-slate-700 md:text-white/90 hover:text-indigo-600">Support</a>
+                <a href="#book" class="bg-indigo-600 text-white px-5 py-2 rounded-full text-sm font-semibold hover:bg-indigo-700 transition-all shadow-md active:scale-95">Book Now</a>
+            </div>
+            
+            <!-- Mobile Menu Toggle -->
+            <div class="md:hidden">
+                <button id="mobile-menu-btn" class="text-slate-900 md:text-white focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden bg-slate-900 pt-20">
+        <div class="absolute inset-0 z-0 opacity-20">
+            <div class="absolute -top-24 -left-24 w-96 h-96 bg-indigo-500 rounded-full blur-[120px]"></div>
+            <div class="absolute -bottom-24 -right-24 w-96 h-96 bg-blue-500 rounded-full blur-[120px]"></div>
+        </div>
+        <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden opacity-[0.05]">
+            <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
+                    <path d="M 10 0 L 0 0 0 10" fill="none" stroke="white" strokeWidth="0.5"/>
+                </pattern>
+                <rect width="100" height="100" fill="url(#grid)" />
+            </svg>
+        </div>
+
+        <div class="relative z-10 max-w-5xl mx-auto px-4 text-center">
+            <img src="https://scontent.fsyd13-1.fna.fbcdn.net/v/t39.30808-1/494791355_122112763328840965_2229762770843612086_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=101&ccb=1-7&_nc_sid=2d3e12&_nc_ohc=0o1oiE6mSJcQ7kNvwFfERAE&_nc_oc=Adljx0XpZhwXpc_Yd1sYc6QQTqq1XPf_NRzxXBhBbVrMpoaC1yXegFfjpuVm9eGjToL8TU1elHmMzUK_StRsZG9e&_nc_zt=24&_nc_ht=scontent.fsyd13-1.fna&_nc_gid=XNCX8r_gvhpar8mzI10gnQ&oh=00_AfoHYHqCgNwLdhyHj32N5ytzjVP7RPs0lFx4d-yBvvooiw&oe=697B8588" alt="Reuben's Odd Jobs Large Logo" class="w-32 md:w-48 h-auto mx-auto mb-10 rounded-2xl shadow-2xl animate-fade-in border border-white/10 p-2 bg-slate-800/50 backdrop-blur-sm">
+            
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/10 text-white text-sm mb-8">
+                <span class="flex h-2 w-2 rounded-full bg-green-400"></span>
+                Available for bookings in Albury
+            </div>
+            
+            <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight tracking-tight">
+                Helping Hands <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-blue-400">For Every Task</span>
+            </h1>
+            
+            <p class="text-xl md:text-2xl text-slate-300 mb-10 max-w-2xl mx-auto font-light leading-relaxed">
+                Reuben's Odd Jobs provides trusted local service for your home and lifestyle. No task is too <span class="text-white font-medium italic">big or small</span>.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#book" class="group relative inline-flex items-center justify-center px-8 py-4 font-bold text-white transition-all duration-200 bg-indigo-600 rounded-full hover:bg-indigo-700 shadow-xl shadow-indigo-500/30">
+                    Book a Service
+                    <svg class="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                </a>
+                <a href="#services" class="inline-flex items-center justify-center px-8 py-4 font-semibold text-white transition-all duration-200 bg-white/5 border border-white/20 rounded-full hover:bg-white/10">Explore Services</a>
+            </div>
+
+            <div class="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 text-slate-400 text-sm font-medium border-t border-white/10 pt-10">
+                <div class="flex flex-col items-center"><span class="text-white text-2xl mb-2">⚡</span>Quick Response</div>
+                <div class="flex flex-col items-center"><span class="text-white text-2xl mb-2">🤝</span>Trusted & Local</div>
+                <div class="flex flex-col items-center"><span class="text-white text-2xl mb-2">💰</span>Fair Pricing</div>
+                <div class="flex flex-col items-center"><span class="text-white text-2xl mb-2">⭐</span>Task Focused</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="bg-white py-24 px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-indigo-600 font-semibold tracking-wide uppercase text-sm mb-3">What we do</h2>
+                <h3 class="text-4xl md:text-5xl font-bold text-slate-900 mb-6">Our Services</h3>
+                <p class="text-slate-600 max-w-2xl mx-auto text-lg">
+                    Prices listed are a guide and <span class="font-semibold text-indigo-600">negotiable</span> based on task complexity.
+                </p>
+            </div>
+            <div id="services-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Services injected via script.js -->
+            </div>
+            <div class="mt-16 p-8 bg-slate-900 rounded-[2rem] text-white flex flex-col md:flex-row items-center justify-between gap-8 border border-white/5">
+                <div>
+                    <h4 class="text-2xl font-bold mb-2">Special Request?</h4>
+                    <p class="text-slate-400">If you have a unique task, Reuben is always happy to discuss how he can help.</p>
+                </div>
+                <a href="#book" class="whitespace-nowrap bg-indigo-500 hover:bg-indigo-400 text-white px-8 py-4 rounded-full font-bold transition-all shadow-lg">Inquire Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section id="book" class="bg-slate-50 py-24 px-4">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-slate-900 mb-4">Book a Service 📋</h2>
+                <p class="text-slate-600">Fill out the form below and we'll get back to you as soon as possible.</p>
+            </div>
+            <div id="booking-container">
+                <form id="booking-form" class="bg-white p-8 md:p-12 rounded-[2.5rem] shadow-xl shadow-slate-200 border border-slate-100">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div class="col-span-full md:col-span-1">
+                            <label class="block text-sm font-semibold text-slate-700 mb-2">Select Service Type</label>
+                            <select name="serviceType" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all">
+                                <option value="">Choose a service...</option>
+                                <option value="Technology Help">Technology Help</option>
+                                <option value="Cleaning">Cleaning</option>
+                                <option value="Party Help">Party Help</option>
+                                <option value="Pet Sitting">Pet Sitting</option>
+                                <option value="Errands">Errands</option>
+                                <option value="Gardening">Gardening</option>
+                                <option value="Senior Assistance">Senior Assistance</option>
+                                <option value="General Labor">General Labor</option>
+                                <option value="Other">Other / Custom Task</option>
+                            </select>
+                        </div>
+                        <div class="col-span-full md:col-span-1">
+                            <label class="block text-sm font-semibold text-slate-700 mb-2">Payment Method</label>
+                            <select name="paymentMethod" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all">
+                                <option value="Cash">Cash</option>
+                                <option value="Bank Transfer">Bank Transfer</option>
+                                <option value="PayPal">PayPal</option>
+                                <option value="PayID">PayID</option>
+                            </select>
+                        </div>
+                        <div class="col-span-full md:col-span-1">
+                            <label class="block text-sm font-semibold text-slate-700 mb-2">First Name</label>
+                            <input type="text" name="firstName" required placeholder="John" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all">
+                        </div>
+                        <div class="col-span-full md:col-span-1">
+                            <label class="block text-sm font-semibold text-slate-700 mb-2">Last Name</label>
+                            <input type="text" name="lastName" required placeholder="Doe" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all">
+                        </div>
+                        <div class="col-span-full">
+                            <label class="block text-sm font-semibold text-slate-700 mb-2">Email Address</label>
+                            <input type="email" name="email" required placeholder="john@example.com" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all">
+                        </div>
+                        <div class="col-span-full">
+                            <label class="block text-sm font-semibold text-slate-700 mb-2">Preferred Date & Time</label>
+                            <input type="text" name="preferredDateTime" required placeholder="e.g., Next Saturday morning" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all">
+                        </div>
+                        <div class="col-span-full">
+                            <label class="block text-sm font-semibold text-slate-700 mb-2">Task Details</label>
+                            <textarea name="details" required rows="4" placeholder="Please describe exactly what you need help with..." class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all"></textarea>
+                        </div>
+                        <div class="col-span-full mt-4">
+                            <button type="submit" id="submit-btn" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 rounded-xl transition-all shadow-lg shadow-indigo-200 flex items-center justify-center gap-2">
+                                Confirm Booking
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="bg-white py-24 px-4">
+        <div class="max-w-3xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-slate-900 mb-4">Frequently Asked Questions ❓</h2>
+                <p class="text-slate-600">Common questions about Reuben's services.</p>
+            </div>
+            <div id="faq-list" class="bg-slate-50 rounded-[2.5rem] p-8 md:p-12 border border-slate-100 shadow-sm">
+                <!-- FAQs injected via script.js -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Hours Section -->
+    <section id="hours" class="bg-slate-50 py-24 px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-slate-900 mb-4 text-center flex items-center justify-center gap-3">Opening Hours 🕒</h2>
+                <p class="text-slate-600">When we're available to help.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+                <div id="school-term-hours" class="bg-white p-8 rounded-[2rem] border border-slate-200 shadow-sm">
+                    <!-- Term hours injected via script.js -->
+                </div>
+                <div class="space-y-8">
+                    <div id="holiday-hours" class="bg-white p-8 rounded-[2rem] border border-slate-200 shadow-sm">
+                         <!-- Holiday hours injected via script.js -->
+                    </div>
+                    <div id="closures" class="bg-indigo-50 p-8 rounded-[2rem] border border-indigo-100">
+                        <!-- Closures injected via script.js -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Support Section -->
+    <section id="support" class="bg-indigo-600 text-white py-16 px-4">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-6">Support 💁</h2>
+            <div class="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20">
+                <p class="text-xl mb-4">Coming Soon!</p>
+                <p class="mb-6 opacity-90">For now, contact us directly:</p>
+                <a href="mailto:reubensoddjobsalbury@gmail.com" class="inline-flex items-center gap-2 bg-white text-indigo-600 px-6 py-3 rounded-full font-semibold hover:bg-slate-100 transition-colors shadow-lg">
+                    <span>📧</span> reubensoddjobsalbury@gmail.com
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-16 px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <div class="col-span-1">
+                    <div class="flex items-center gap-3 mb-6">
+                        <img src="https://scontent.fsyd13-1.fna.fbcdn.net/v/t39.30808-1/494791355_122112763328840965_2229762770843612086_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=101&ccb=1-7&_nc_sid=2d3e12&_nc_ohc=0o1oiE6mSJcQ7kNvwFfERAE&_nc_oc=Adljx0XpZhwXpc_Yd1sYc6QQTqq1XPf_NRzxXBhBbVrMpoaC1yXegFfjpuVm9eGjToL8TU1elHmMzUK_StRsZG9e&_nc_zt=24&_nc_ht=scontent.fsyd13-1.fna&_nc_gid=XNCX8r_gvhpar8mzI10gnQ&oh=00_AfoHYHqCgNwLdhyHj32N5ytzjVP7RPs0lFx4d-yBvvooiw&oe=697B8588" alt="Reuben's Odd Jobs Logo" class="w-10 h-10 object-cover rounded-lg">
+                        <span class="text-white text-xl font-bold">Reuben's <span class="text-indigo-400">Odd Jobs</span></span>
+                    </div>
+                    <p class="text-sm leading-relaxed mb-6">Helping the Albury community with quality tasks big and small since day one.</p>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-6">Quick Links</h4>
+                    <ul class="space-y-4 text-sm">
+                        <li><a href="#services" class="hover:text-indigo-400">Services</a></li>
+                        <li><a href="#book" class="hover:text-indigo-400">Book</a></li>
+                        <li><a href="#faq" class="hover:text-indigo-400">FAQ</a></li>
+                        <li><a href="#hours" class="hover:text-indigo-400">Hours</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-6">Contact</h4>
+                    <p class="text-sm">📍 Albury, NSW</p>
+                    <p class="text-sm mt-2">📧 reubensoddjobsalbury@gmail.com</p>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-6">Subscribe</h4>
+                    <form class="flex flex-col gap-2">
+                        <input type="email" placeholder="Email" class="bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-indigo-500">
+                        <button class="bg-indigo-600 text-white text-sm font-bold py-2 rounded-lg">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-white/5 text-center flex flex-col md:flex-row justify-between items-center text-xs">
+                <p>© <span id="year"></span> Reuben's Odd Jobs.</p>
+                <p class="italic text-slate-500">Helping hands for every task. Prices negotiable.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="./script.js"></script>
+</body>
+</html>
