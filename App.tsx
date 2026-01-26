@@ -2,8 +2,6 @@ import React from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Services from './components/Services';
-import Gallery from './components/Gallery';
-import Testimonials from './components/Testimonials';
 import BookingForm from './components/BookingForm';
 import FAQ from './components/FAQ';
 import Hours from './components/Hours';
@@ -21,14 +19,6 @@ const App: React.FC = () => {
 
         <section id="services" className="bg-white">
           <Services />
-        </section>
-
-        <section id="gallery" className="bg-slate-50">
-          <Gallery />
-        </section>
-
-        <section id="testimonials" className="bg-white">
-          <Testimonials />
         </section>
 
         <section id="book" className="bg-slate-50">

@@ -25,7 +25,25 @@
     }
     </script>
 </head>
-<body class="bg-slate-50 text-slate-900">
+<body class="bg-slate-50 text-slate-900 font-inter">
+
+    <!-- Navbar -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent py-5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <div class="w-10 h-10 bg-indigo-600 rounded-lg flex items-center justify-center text-white text-xl font-bold shadow-indigo-200 shadow-lg">R</div>
+                <span id="brand-text" class="text-xl font-bold tracking-tight text-white">Reuben's <span class="text-indigo-400">Odd Jobs</span></span>
+            </div>
+            <div class="hidden lg:flex items-center gap-6">
+                <a href="#services" class="nav-link text-sm font-medium text-white/90 hover:text-indigo-400">Services</a>
+                <a href="#book" class="nav-link text-sm font-medium text-white/90 hover:text-indigo-400">Book</a>
+                <a href="#faq" class="nav-link text-sm font-medium text-white/90 hover:text-indigo-400">FAQ</a>
+                <a href="#hours" class="nav-link text-sm font-medium text-white/90 hover:text-indigo-400">Hours</a>
+                <a href="#book" class="bg-indigo-600 text-white px-5 py-2 rounded-full text-sm font-semibold hover:bg-indigo-700 transition-all shadow-md active:scale-95">Book Now</a>
+            </div>
+        </div>
+    </nav>
+
     <div id="root">
         <!-- Static Loading State / SSR Skeleton -->
         <div class="min-h-screen bg-slate-900 flex items-center justify-center text-white p-4">
@@ -36,5 +54,7 @@
             </div>
         </div>
     </div>
+
+    <script src="./script.js"></script>
 </body>
 </html>

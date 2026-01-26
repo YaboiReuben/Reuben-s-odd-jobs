@@ -13,8 +13,6 @@ const Navbar: React.FC = () => {
 
   const navLinks = [
     { name: 'Services', href: '#services' },
-    { name: 'Portfolio', href: '#gallery' },
-    { name: 'Reviews', href: '#testimonials' },
     { name: 'Book', href: '#book' },
     { name: 'FAQ', href: '#faq' },
     { name: 'Hours', href: '#hours' },
@@ -55,8 +53,6 @@ const Navbar: React.FC = () => {
             Book Now
           </a>
         </div>
-        
-        {/* Mobile menu trigger could go here */}
       </div>
     </nav>
   );
