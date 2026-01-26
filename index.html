@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reuben's Odd Jobs - Helping You With Tasks Big and Small</title>
-    <meta name="description" content="A professional and friendly platform for Reuben's Odd Jobs, helping with tasks big and small in Albury including tech support, cleaning, gardening, and more.">
+    <meta name="description" content="Professional odd job services in Albury. Tech help, cleaning, gardening, and general labor. Cash only, local and reliable.">
     <!-- Favicon -->
     <link rel="icon" type="image/jpeg" href="https://scontent.fsyd13-1.fna.fbcdn.net/v/t39.30808-1/494791355_122112763328840965_2229762770843612086_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=101&ccb=1-7&_nc_sid=2d3e12&_nc_ohc=0o1oiE6mSJcQ7kNvwFfERAE&_nc_oc=Adljx0XpZhwXpc_Yd1sYc6QQTqq1XPf_NRzxXBhBbVrMpoaC1yXegFfjpuVm9eGjToL8TU1elHmMzUK_StRsZG9e&_nc_zt=24&_nc_ht=scontent.fsyd13-1.fna&_nc_gid=XNCX8r_gvhpar8mzI10gnQ&oh=00_AfoHYHqCgNwLdhyHj32N5ytzjVP7RPs0lFx4d-yBvvooiw&oe=697B8588">
-    <!-- Tailwind CSS for modern styling -->
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,6 +26,15 @@
     </script>
 </head>
 <body class="bg-slate-50 text-slate-900">
-    <div id="root"></div>
+    <div id="root">
+        <!-- Static Loading State / SSR Skeleton -->
+        <div class="min-h-screen bg-slate-900 flex items-center justify-center text-white p-4">
+            <div class="text-center animate-pulse">
+                <div class="w-20 h-20 bg-indigo-600 rounded-2xl mx-auto mb-6 flex items-center justify-center text-3xl font-bold shadow-xl">R</div>
+                <h1 class="text-2xl font-bold mb-2">Reuben's Odd Jobs</h1>
+                <p class="text-slate-400 font-light">Loading tasks...</p>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

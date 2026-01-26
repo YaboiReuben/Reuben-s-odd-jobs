@@ -69,7 +69,7 @@ export const FAQS: FAQItem[] = [
   },
   {
     question: "What forms of payment do you accept?",
-    answer: "We are currently a cash-only service. Payment is typically settled in cash upon completion of the task."
+    answer: "We are strictly a cash-only service. We do not accept bank transfers, card payments, or digital apps like PayPal/PayID at this time. Payment is settled in cash upon completion."
   },
   {
     question: "What if the task takes longer than expected?",

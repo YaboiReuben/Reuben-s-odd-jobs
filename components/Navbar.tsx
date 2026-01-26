@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 
 const Navbar: React.FC = () => {
@@ -14,10 +13,11 @@ const Navbar: React.FC = () => {
 
   const navLinks = [
     { name: 'Services', href: '#services' },
+    { name: 'Portfolio', href: '#gallery' },
+    { name: 'Reviews', href: '#testimonials' },
     { name: 'Book', href: '#book' },
     { name: 'FAQ', href: '#faq' },
     { name: 'Hours', href: '#hours' },
-    { name: 'Support', href: '#support' },
   ];
 
   return (
@@ -36,7 +36,7 @@ const Navbar: React.FC = () => {
           </span>
         </div>
 
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden lg:flex items-center gap-6">
           {navLinks.map((link) => (
             <a
               key={link.name}
@@ -55,8 +55,8 @@ const Navbar: React.FC = () => {
             Book Now
           </a>
         </div>
-
-        {/* Mobile menu could be added here, but for a simple SPA, anchor links work well */}
+        
+        {/* Mobile menu trigger could go here */}
       </div>
     </nav>
   );
