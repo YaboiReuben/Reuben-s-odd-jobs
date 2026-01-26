@@ -6,21 +6,16 @@ h1, h2, h3, h4, .font-display {
     font-family: 'Poppins', sans-serif;
 }
 
-/* Custom Scroll Behavior for anchors */
+/* Custom Scroll Padding for Anchors */
 html {
-    scroll-padding-top: 80px;
+    scroll-padding-top: 100px;
 }
 
-/* Nav logo styling */
-#nav-logo {
-    object-fit: cover;
-}
-
-/* Nav specific transitions */
+/* Sticky Navbar Styles */
 #navbar.scrolled {
-    background-color: rgba(255, 255, 255, 0.95);
+    background-color: rgba(255, 255, 255, 0.9);
     backdrop-filter: blur(12px);
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 20px -5px rgba(0, 0, 0, 0.1);
     padding-top: 0.75rem;
     padding-bottom: 0.75rem;
 }
@@ -33,15 +28,6 @@ html {
     color: #475569;
 }
 
-#navbar.scrolled #nav-logo {
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-}
-
-/* Logo specific styles */
-#nav-logo {
-    transition: all 0.3s ease;
-}
-
 /* Animations */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
@@ -52,8 +38,8 @@ html {
     animation: fadeIn 0.8s ease-out forwards;
 }
 
-/* Accordion Transition */
-.faq-answer {
+/* FAQ Accordion Styles */
+.faq-item .faq-answer {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out;
@@ -61,14 +47,20 @@ html {
 
 .faq-item.active .faq-answer {
     max-height: 500px;
-    padding-bottom: 1.5rem;
+    padding-top: 1rem;
 }
 
 .faq-item.active .faq-icon {
     transform: rotate(180deg);
 }
 
-/* Form Success State */
+/* Input Customization */
+input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+    filter: invert(0.5);
+}
+
+/* Success State Bounce */
 .success-bounce {
     animation: bounce 1s infinite;
 }
