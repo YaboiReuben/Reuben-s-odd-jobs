@@ -14,245 +14,27 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
-<script type="importmap">
-{
-  "imports": {
-    "react/": "https://esm.sh/react@^19.2.3/",
-    "react": "https://esm.sh/react@^19.2.3"
-  }
-}
-</script>
+    <script type="importmap">
+    {
+      "imports": {
+        "react": "https://esm.sh/react@^19.2.3",
+        "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+        "react/": "https://esm.sh/react@^19.2.3/",
+        "@google/genai": "https://esm.sh/@google/genai@^1.38.0"
+      }
+    }
+    </script>
 </head>
-<body class="bg-slate-50 text-slate-900 font-inter">
-
-    <!-- Navbar -->
-    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent py-5">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-            <div class="flex items-center gap-2">
-                <div class="w-10 h-10 bg-indigo-600 rounded-lg flex items-center justify-center text-white text-xl font-bold shadow-indigo-200 shadow-lg">R</div>
-                <span id="brand-text" class="text-xl font-bold tracking-tight text-white">Reuben's <span class="text-indigo-400">Odd Jobs</span></span>
-            </div>
-            <div class="hidden lg:flex items-center gap-6">
-                <a href="#services" class="nav-link text-sm font-medium text-white/90 hover:text-indigo-400">Services</a>
-                <a href="#portfolio" class="nav-link text-sm font-medium text-white/90 hover:text-indigo-400">Portfolio</a>
-                <a href="#reviews" class="nav-link text-sm font-medium text-white/90 hover:text-indigo-400">Reviews</a>
-                <a href="#book" class="nav-link text-sm font-medium text-white/90 hover:text-indigo-400">Book</a>
-                <a href="#faq" class="nav-link text-sm font-medium text-white/90 hover:text-indigo-400">FAQ</a>
-                <a href="#hours" class="nav-link text-sm font-medium text-white/90 hover:text-indigo-400">Hours</a>
-                <a href="#book" class="bg-indigo-600 text-white px-5 py-2 rounded-full text-sm font-semibold hover:bg-indigo-700 transition-all shadow-md active:scale-95">Book Now</a>
+<body class="bg-slate-50 text-slate-900">
+    <div id="root">
+        <!-- Static Loading State / SSR Skeleton -->
+        <div class="min-h-screen bg-slate-900 flex items-center justify-center text-white p-4">
+            <div class="text-center animate-pulse">
+                <div class="w-20 h-20 bg-indigo-600 rounded-2xl mx-auto mb-6 flex items-center justify-center text-3xl font-bold shadow-xl">R</div>
+                <h1 class="text-2xl font-bold mb-2">Reuben's Odd Jobs</h1>
+                <p class="text-slate-400 font-light">Loading tasks...</p>
             </div>
         </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden bg-slate-900">
-        <div class="absolute inset-0 z-0 opacity-20">
-            <div class="absolute -top-24 -left-24 w-96 h-96 bg-indigo-500 rounded-full blur-[120px]"></div>
-            <div class="absolute -bottom-24 -right-24 w-96 h-96 bg-blue-500 rounded-full blur-[120px]"></div>
-        </div>
-        <div class="relative z-10 max-w-5xl mx-auto px-4 text-center">
-            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/10 text-white text-sm mb-8 animate-fade-in">
-                <span class="flex h-2 w-2 rounded-full bg-green-400"></span>
-                Available for bookings in Albury
-            </div>
-            <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight tracking-tight">
-                Reuben's <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-blue-400">Odd Jobs</span>
-            </h1>
-            <p class="text-xl md:text-2xl text-slate-300 mb-10 max-w-2xl mx-auto font-light leading-relaxed">
-                Helping you with tasks <span class="text-white font-medium italic">big and small</span>. Trusted local service for your home and lifestyle.
-            </p>
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <a href="#book" class="group inline-flex items-center justify-center px-8 py-4 font-bold text-white transition-all duration-200 bg-indigo-600 rounded-full hover:bg-indigo-700 shadow-xl shadow-indigo-500/30">
-                    Book a Service
-                    <svg class="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" fill="currentColor" viewBox="0 0 20 20"><path d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"></path></svg>
-                </a>
-                <a href="#services" class="inline-flex items-center justify-center px-8 py-4 font-semibold text-white transition-all duration-200 bg-white/5 border border-white/20 rounded-full hover:bg-white/10">Explore Services</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="py-24 px-4 bg-white">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-16">
-                <h2 class="text-indigo-600 font-semibold uppercase text-sm mb-3">What we do</h2>
-                <h3 class="text-4xl font-bold text-slate-900 mb-6 font-display">Our Services</h3>
-                <p class="text-slate-600 max-w-2xl mx-auto text-lg">Prices listed are a guide and negotiable. Strictly <strong>Cash Only</strong>.</p>
-            </div>
-            <div id="services-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Services injected by JS -->
-            </div>
-        </div>
-    </section>
-
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="py-24 px-4 bg-slate-50">
-        <div class="max-w-7xl mx-auto text-center">
-            <h2 class="text-indigo-600 font-semibold uppercase text-sm mb-3">Our Work</h2>
-            <h3 class="text-4xl font-bold text-slate-900 mb-6 font-display">Task Portfolio</h3>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-                <div class="group relative overflow-hidden rounded-3xl shadow-lg aspect-video bg-slate-200">
-                    <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover transition-transform group-hover:scale-110" alt="Garden">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col justify-end p-6 text-white text-left opacity-0 group-hover:opacity-100 transition-opacity">
-                        <h4 class="font-bold">Garden Maintenance</h4>
-                    </div>
-                </div>
-                <div class="group relative overflow-hidden rounded-3xl shadow-lg aspect-video bg-slate-200">
-                    <img src="https://images.unsplash.com/photo-1587614382346-4ec7063f9b28?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover transition-transform group-hover:scale-110" alt="Tech">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col justify-end p-6 text-white text-left opacity-0 group-hover:opacity-100 transition-opacity">
-                        <h4 class="font-bold">Technology Setup</h4>
-                    </div>
-                </div>
-                <div class="group relative overflow-hidden rounded-3xl shadow-lg aspect-video bg-slate-200">
-                    <img src="https://images.unsplash.com/photo-1581244277943-fe4a9c777189?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover transition-transform group-hover:scale-110" alt="Repair">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col justify-end p-6 text-white text-left opacity-0 group-hover:opacity-100 transition-opacity">
-                        <h4 class="font-bold">Home Repairs</h4>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Reviews Section -->
-    <section id="reviews" class="py-24 px-4 bg-white">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-16">
-                <h2 class="text-indigo-600 font-semibold uppercase text-sm mb-3">Community Love</h2>
-                <h3 class="text-4xl font-bold text-slate-900 mb-6 font-display">What Locals Are Saying</h3>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-indigo-50 p-8 rounded-[2rem] border border-indigo-100">
-                    <div class="text-amber-400 mb-4">★★★★★</div>
-                    <p class="text-slate-700 italic mb-6">"Reuben was so helpful with my garden! He was on time and very polite. Highly recommend."</p>
-                    <h4 class="font-bold">Sarah L.</h4>
-                    <p class="text-xs text-slate-500">Albury East</p>
-                </div>
-                <div class="bg-indigo-50 p-8 rounded-[2rem] border border-indigo-100">
-                    <div class="text-amber-400 mb-4">★★★★★</div>
-                    <p class="text-slate-700 italic mb-6">"Helped me set up my new TV and smart home devices. Saved me hours of frustration."</p>
-                    <h4 class="font-bold">Mark T.</h4>
-                    <p class="text-xs text-slate-500">Lavington</p>
-                </div>
-                <div class="bg-indigo-50 p-8 rounded-[2rem] border border-indigo-100">
-                    <div class="text-amber-400 mb-4">★★★★★</div>
-                    <p class="text-slate-700 italic mb-6">"Super reliable for pet sitting. My dogs loved him and I felt totally comfortable."</p>
-                    <h4 class="font-bold">Jenna W.</h4>
-                    <p class="text-xs text-slate-500">West Albury</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Booking Form Section -->
-    <section id="book" class="py-24 px-4 bg-slate-50">
-        <div id="booking-container" class="max-w-4xl mx-auto">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-slate-900 mb-4 font-display">Book a Service 📋</h2>
-                <p class="text-slate-600">Fill out the form below for a quote.</p>
-            </div>
-            <form id="booking-form" class="bg-white p-8 md:p-12 rounded-[2.5rem] shadow-xl border border-slate-100">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div class="col-span-full md:col-span-1">
-                        <label class="block text-sm font-semibold text-slate-700 mb-2">Service Type</label>
-                        <select required name="serviceType" class="w-full px-4 py-3 rounded-xl border border-slate-200 outline-none focus:ring-2 focus:ring-indigo-500">
-                            <option value="">Choose a service...</option>
-                            <option value="Tech Help">Technology Help</option>
-                            <option value="Cleaning">Cleaning</option>
-                            <option value="Gardening">Gardening</option>
-                            <option value="Labor">General Labor</option>
-                            <option value="Other">Other</option>
-                        </select>
-                    </div>
-                    <div class="col-span-full md:col-span-1">
-                        <label class="block text-sm font-semibold text-slate-700 mb-2">Payment</label>
-                        <div class="w-full px-4 py-3 rounded-xl border border-indigo-100 bg-indigo-50 text-indigo-700 font-medium">💵 Cash Only</div>
-                    </div>
-                    <div class="col-span-full md:col-span-1">
-                        <label class="block text-sm font-semibold text-slate-700 mb-2">First Name</label>
-                        <input required type="text" name="firstName" placeholder="John" class="w-full px-4 py-3 rounded-xl border border-slate-200 outline-none focus:ring-2 focus:ring-indigo-500">
-                    </div>
-                    <div class="col-span-full md:col-span-1">
-                        <label class="block text-sm font-semibold text-slate-700 mb-2">Last Name</label>
-                        <input required type="text" name="lastName" placeholder="Doe" class="w-full px-4 py-3 rounded-xl border border-slate-200 outline-none focus:ring-2 focus:ring-indigo-500">
-                    </div>
-                    <div class="col-span-full">
-                        <label class="block text-sm font-semibold text-slate-700 mb-2">Email</label>
-                        <input required type="email" name="email" placeholder="john@example.com" class="w-full px-4 py-3 rounded-xl border border-slate-200 outline-none focus:ring-2 focus:ring-indigo-500">
-                    </div>
-                    <div class="col-span-full">
-                        <label class="block text-sm font-semibold text-slate-700 mb-2">Preferred Date & Time</label>
-                        <input required type="datetime-local" name="dateTime" class="w-full px-4 py-3 rounded-xl border border-slate-200 outline-none focus:ring-2 focus:ring-indigo-500">
-                    </div>
-                    <div class="col-span-full">
-                        <label class="block text-sm font-semibold text-slate-700 mb-2">Details</label>
-                        <textarea required name="details" rows="4" placeholder="How can Reuben help?" class="w-full px-4 py-3 rounded-xl border border-slate-200 outline-none focus:ring-2 focus:ring-indigo-500"></textarea>
-                    </div>
-                    <div class="col-span-full mt-4 text-center">
-                        <button id="submit-btn" type="submit" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 rounded-xl shadow-lg transition-all">Confirm Booking</button>
-                        <p class="text-xs text-slate-400 mt-4">By booking, you agree to our <strong>cash-only</strong> policy.</p>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </section>
-
-    <!-- FAQ Section -->
-    <section id="faq" class="py-24 px-4 bg-white">
-        <div class="max-w-3xl mx-auto">
-            <h2 class="text-4xl font-bold text-slate-900 mb-12 text-center font-display">Frequently Asked Questions</h2>
-            <div id="faq-list" class="space-y-4">
-                <!-- FAQs injected by JS -->
-            </div>
-        </div>
-    </section>
-
-    <!-- Hours Section -->
-    <section id="hours" class="py-24 px-4 bg-slate-50">
-        <div class="max-w-7xl mx-auto">
-            <h2 class="text-4xl font-bold text-slate-900 mb-12 text-center font-display">Opening Hours 🕒</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div id="school-term-hours" class="bg-white p-8 rounded-[2rem] border border-slate-200 shadow-sm"></div>
-                <div class="space-y-8">
-                    <div id="holiday-hours" class="bg-white p-8 rounded-[2rem] border border-slate-200 shadow-sm"></div>
-                    <div id="closures" class="bg-indigo-50 p-8 rounded-[2rem] border border-indigo-100"></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-slate-900 text-slate-400 py-16 px-4">
-        <div class="max-w-7xl mx-auto">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
-                <div>
-                    <div class="flex items-center gap-3 mb-6">
-                        <div class="w-8 h-8 bg-indigo-600 rounded flex items-center justify-center text-white font-bold">R</div>
-                        <span class="text-white text-xl font-bold font-display">Reuben's <span class="text-indigo-400">Odd Jobs</span></span>
-                    </div>
-                    <p class="text-sm">Helping Albury with tasks big and small. Local, trusted, and efficient.</p>
-                </div>
-                <div>
-                    <h4 class="text-white font-bold mb-6">Quick Links</h4>
-                    <ul class="space-y-3 text-sm">
-                        <li><a href="#services" class="hover:text-white transition-colors">Services</a></li>
-                        <li><a href="#book" class="hover:text-white transition-colors">Book Now</a></li>
-                        <li><a href="#faq" class="hover:text-white transition-colors">FAQ</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-white font-bold mb-6">Contact</h4>
-                    <p class="text-sm mb-2">📍 Albury, NSW</p>
-                    <p class="text-sm mb-4">📧 reubensoddjobsalbury@gmail.com</p>
-                    <p class="text-indigo-400 font-bold">💵 Cash Only Accepted</p>
-                </div>
-            </div>
-            <div class="pt-8 border-t border-white/10 text-center flex flex-col md:flex-row justify-between text-xs gap-4">
-                <p>&copy; <span id="year"></span> Reuben's Odd Jobs. All rights reserved.</p>
-                <p class="italic">Disclaimer: Strictly cash-only. Pricing is guide only.</p>
-            </div>
-        </div>
-    </footer>
-
-    <script src="./script.js"></script>
+    </div>
 </body>
 </html>
