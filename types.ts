@@ -1,4 +1,3 @@
-
 export interface Service {
   id: string;
   name: string;
@@ -24,8 +23,5 @@ export interface BookingData {
 }
 
 export enum PaymentMethod {
-  CASH = 'Cash',
-  BANK_TRANSFER = 'Bank Transfer',
-  PAYPAL = 'PayPal',
-  PAYID = 'PayID'
+  CASH = 'Cash Only'
 }

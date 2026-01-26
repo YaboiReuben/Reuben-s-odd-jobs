@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Service, FAQItem } from './types';
 
@@ -70,7 +69,7 @@ export const FAQS: FAQItem[] = [
   },
   {
     question: "What forms of payment do you accept?",
-    answer: "We accept Cash, Bank Transfer, PayPal, and PayID. Payment is typically settled upon completion of the task."
+    answer: "We are currently a cash-only service. Payment is typically settled in cash upon completion of the task."
   },
   {
     question: "What if the task takes longer than expected?",

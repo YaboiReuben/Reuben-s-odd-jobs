@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { SERVICES } from '../constants';
 import { PaymentMethod } from '../types';
@@ -32,13 +31,23 @@ const BookingForm: React.FC = () => {
   };
 
   if (submitted) {
+    const displayDate = formData.preferredDateTime 
+      ? new Date(formData.preferredDateTime).toLocaleString('en-AU', { 
+          dateStyle: 'full', 
+          timeStyle: 'short' 
+        }) 
+      : 'the requested time';
+
     return (
       <div className="py-24 px-4 max-w-2xl mx-auto text-center">
         <div className="w-24 h-24 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-5xl mx-auto mb-8 animate-bounce">
           ✓
         </div>
         <h3 className="text-3xl font-bold mb-4 text-slate-900">Thank you!</h3>
-        <p className="text-xl text-slate-600 mb-10">We've received your booking request for <strong>{formData.serviceType}</strong>. We'll confirm your booking via email ({formData.email}) shortly.</p>
+        <p className="text-xl text-slate-600 mb-10">
+          We've received your booking request for <strong>{formData.serviceType}</strong> on <strong>{displayDate}</strong>. 
+          We'll confirm your booking via email ({formData.email}) shortly.
+        </p>
         <button 
           onClick={() => setSubmitted(false)}
           className="text-indigo-600 font-semibold hover:underline"
@@ -74,16 +83,10 @@ const BookingForm: React.FC = () => {
           </div>
 
           <div className="col-span-full md:col-span-1">
-            <label className="block text-sm font-semibold text-slate-700 mb-2">Preferred Payment Method</label>
-            <select
-              required
-              name="paymentMethod"
-              value={formData.paymentMethod}
-              onChange={handleChange}
-              className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all"
-            >
-              {Object.values(PaymentMethod).map(m => <option key={m} value={m}>{m}</option>)}
-            </select>
+            <label className="block text-sm font-semibold text-slate-700 mb-2">Payment Method</label>
+            <div className="w-full px-4 py-3 rounded-xl border border-indigo-100 bg-indigo-50 text-indigo-700 font-medium flex items-center gap-2">
+              <span>💵</span> Cash Only
+            </div>
           </div>
 
           <div className="col-span-full md:col-span-1">
@@ -127,15 +130,19 @@ const BookingForm: React.FC = () => {
 
           <div className="col-span-full">
             <label className="block text-sm font-semibold text-slate-700 mb-2">Preferred Date & Time</label>
-            <input
-              required
-              type="text"
-              name="preferredDateTime"
-              value={formData.preferredDateTime}
-              onChange={handleChange}
-              placeholder="e.g., Next Saturday morning"
-              className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all"
-            />
+            <div className="relative">
+              <input
+                required
+                type="datetime-local"
+                name="preferredDateTime"
+                value={formData.preferredDateTime}
+                onChange={handleChange}
+                className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all appearance-none"
+              />
+              <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">
+                📅
+              </div>
+            </div>
           </div>
 
           <div className="col-span-full">
@@ -163,7 +170,7 @@ const BookingForm: React.FC = () => {
               {loading ? 'Submitting...' : 'Confirm Booking'}
             </button>
             <p className="text-center text-xs text-slate-400 mt-4">
-              By clicking "Confirm Booking", you agree to our guide prices and negotiable terms.
+              By clicking "Confirm Booking", you agree to our guide prices, negotiable terms, and <strong>cash-only</strong> payment policy.
             </p>
           </div>
         </div>

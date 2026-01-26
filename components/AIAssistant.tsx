@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useRef } from 'react';
 import { GoogleGenAI } from '@google/genai';
 import { SERVICES, FAQS, HOURS } from '../constants';
@@ -6,7 +5,7 @@ import { SERVICES, FAQS, HOURS } from '../constants';
 const AIAssistant: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<{ role: 'user' | 'assistant'; text: string }[]>([
-    { role: 'assistant', text: "Hi! I'm Reuben's AI assistant. How can I help you today? You can ask about our services, prices, or availability." }
+    { role: 'assistant', text: "Hi! I'm Reuben's AI assistant. How can I help you today? You can ask about our services, prices, or availability. Note: We are a cash-only service!" }
   ]);
   const [input, setInput] = useState('');
   const [isTyping, setIsTyping] = useState(false);
@@ -39,13 +38,15 @@ const AIAssistant: React.FC = () => {
         - Special Closures: ${HOURS.closures.map(c => c.event).join(', ')}.
         - Contact: reubensoddjobsalbury@gmail.com
         - Tagline: "Helping you with tasks big and small!"
+        - IMPORTANT PAYMENT POLICY: We are strictly CASH ONLY. No bank transfers, PayPal, or card payments are accepted.
         - Note: Prices are guide/negotiable.
         
         Rules:
         1. Be friendly, professional, and helpful.
         2. Keep answers concise.
-        3. If you don't know the answer based on the provided info, suggest they email the business.
-        4. Refer to Reuben in the third person.
+        3. If asked about payment, clearly state that only CASH is accepted.
+        4. If you don't know the answer based on the provided info, suggest they email the business.
+        5. Refer to Reuben in the third person.
       `;
 
       const response = await ai.models.generateContent({
