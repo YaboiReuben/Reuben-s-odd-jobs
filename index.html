@@ -1,31 +1,69 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reuben's Odd Jobs - Helping You With Tasks Big and Small</title>
-    <meta name="description" content="Professional odd job services in Albury. Tech help, cleaning, gardening, and general labor. Cash only, local and reliable.">
-    <!-- Favicon -->
-    <link rel="icon" type="image/jpeg" href="https://scontent.fsyd13-1.fna.fbcdn.net/v/t39.30808-1/494791355_122112763328840965_2229762770843612086_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=101&ccb=1-7&_nc_sid=2d3e12&_nc_ohc=0o1oiE6mSJcQ7kNvwFfERAE&_nc_oc=Adljx0XpZhwXpc_Yd1sYc6QQTqq1XPf_NRzxXBhBbVrMpoaC1yXegFfjpuVm9eGjToL8TU1elHmMzUK_StRsZG9e&_nc_zt=24&_nc_ht=scontent.fsyd13-1.fna&_nc_gid=XNCX8r_gvhpar8mzI10gnQ&oh=00_AfoHYHqCgNwLdhyHj32N5ytzjVP7RPs0lFx4d-yBvvooiw&oe=697B8588">
-    <!-- Tailwind CSS -->
+    <title>Maintenance | Reuben's Odd Jobs</title>
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./style.css">
-    <script type="importmap">
-    {
-      "imports": {
-        "react": "https://esm.sh/react@^19.2.3",
-        "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
-        "react/": "https://esm.sh/react@^19.2.3/"
-      }
-    }
-    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f1f5f9;
+        }
+    </style>
 </head>
-<body class="bg-slate-50 text-slate-900 font-inter">
-    <div id="root"></div>
-    <script type="module" src="./index.tsx"></script>
+<body class="min-h-screen flex items-center justify-center p-6 text-gray-900">
+
+    <div class="max-w-md w-full text-center bg-white p-8 md:p-12 rounded-3xl shadow-xl border border-gray-100">
+        
+        <!-- Shrugging Character Image from URL -->
+        <div class="flex justify-center mb-6">
+            <div class="relative w-64 h-64 overflow-hidden rounded-2xl bg-gray-50 border border-gray-100 flex items-center justify-center">
+                <img 
+                    src="https://i.pinimg.com/736x/fd/1a/3c/fd1a3ce4e0fd1560b4d94e0ea267e204.jpg" 
+                    alt="Reuben shrugging" 
+                    class="w-full h-full object-contain"
+                    onerror="this.style.opacity='0'; this.nextElementSibling.style.display='block';"
+                >
+                <!-- Fallback Icon if URL fails -->
+                <div class="hidden absolute inset-0 flex flex-col items-center justify-center text-gray-400 p-4">
+                    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M7 20V17C7 14.7909 8.79086 13 11 13H13C15.2091 13 17 14.7909 17 17V20" />
+                        <circle cx="12" cy="7" r="3" />
+                        <path d="M7 14L4 11V9" />
+                        <path d="M17 14L20 11V9" />
+                    </svg>
+                    <p class="text-xs mt-2 italic text-center">Under Maintenance</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Text Content -->
+        <h1 class="text-4xl font-bold text-gray-900 mb-4">Oops!</h1>
+        <h2 class="text-xl font-semibold text-gray-700 mb-4">Site's down for a quick fix.</h2>
+        
+        <p class="text-gray-500 leading-relaxed mb-10 px-4">
+            Looks like <strong>Reuben's Odd Jobs</strong> needs a little attention of its own! We're currently under maintenance and will be back shortly.
+        </p>
+
+        <!-- Contact Info -->
+        <div class="border-t border-gray-100 pt-8">
+            <p class="text-sm text-gray-400 mb-2">Need to reach us urgently?</p>
+            <a href="mailto:reuben@example.com" class="text-blue-600 hover:text-blue-700 font-medium transition-colors">
+                reuben@example.com
+            </a>
+        </div>
+        
+        <p class="mt-8 text-xs text-gray-400 uppercase tracking-widest">
+            &copy; <span id="year"></span> Reuben's Odd Jobs
+        </p>
+    </div>
+
+    <script>
+        // Set current year
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>
